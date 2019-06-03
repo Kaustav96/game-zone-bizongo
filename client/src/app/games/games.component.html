@@ -1,0 +1,47 @@
+
+<!--Search Games implementation-->
+<div ng-controller="GameCtrl">
+  <div class="container">
+    <div class="row">
+      <div id="custom-search-input">
+        <div class="input-group col-md-12">
+          <input type="text" class="search-query form-control" #myinput placeholder="Search by Game Name" 
+          [(ngModel)]="Name" (input)="SearchByName()"/>
+        </div>
+      </div>
+    </div>
+</div>
+  <br><br>
+<!--details of game and delete option-->
+<div class="container">
+    <span class="input-group-btn">
+        <input type="button" (click)="show()" value="Show all games ">
+      </span><br><br>
+    <table border="3">
+        <thead>
+          <th>Rank</th>
+          <th>Name</th>
+          <th>Platform</th>
+          <th>Year</th>
+          <th>Genre</th>
+          <th>Publisher</th>
+          <th>Global_Sales</th>
+          <th>Date</th>
+          <th>Delete Games</th>
+        </thead>
+        <tbody >
+          <tr *ngFor = "let game of games">
+            <td>{{game.Rank}}</td>
+            <td>{{game.Name}}</td>
+            <td>{{game.Platform}}</td>
+            <td>{{game.Year}}</td>
+            <td>{{game.Genre}}</td>
+            <td>{{game.Publisher}}</td>
+            <td>{{game.Global_Sales}}</td>
+            <td>{{game.Date}}</td>
+            <td><input type="button" (click)="deleteGame(game._id)" value="Delete" class="btn btn-danger"></td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+</div>
